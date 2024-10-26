@@ -1,7 +1,14 @@
+import { Candidate } from '../interfaces/Candidate.interface'
+
 const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
-    // console.log(import.meta.env);
+    console.log(import.meta.env);
+    if (!import.meta.env.VITE_GITHUB_TOKEN) {
+      console.error('GitHub token is not defined!');
+      return [];
+  }
+    console.log('Token being used:', import.meta.env.VITE_GITHUB_TOKEN);
     const response = await fetch(
       `https://api.github.com/users?since=${start}`,
       {
@@ -37,7 +44,7 @@ const searchGithubUser = async (username: string) => {
     return data;
   } catch (err) {
     // console.log('an error occurred', err);
-    return {};
+    return {} as Candidate;
   }
 };
 
