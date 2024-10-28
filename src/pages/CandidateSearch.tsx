@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import { Candidate } from '../interfaces/Candidate.interface';
+import { useOutletContext } from 'react-router-dom';
 
 const CandidateSearch = () => {
+  const { addCandidate } = useOutletContext<{ addCandidate: (candidate: Candidate) => void }>();
   const [candidate, setCandidate] = useState<Candidate | null>(null);
-  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,7 +33,7 @@ const CandidateSearch = () => {
 
   const handleSaveCandidate = () => {
     if (candidate) {
-      setSavedCandidates([...savedCandidates, candidate]);
+      addCandidate(candidate); // Use the addCandidate function from props
       fetchNewCandidate(); // Fetch the next candidate
     }
   };
