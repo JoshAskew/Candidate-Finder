@@ -33,13 +33,13 @@ const CandidateSearch = () => {
 
   const handleSaveCandidate = () => {
     if (candidate) {
-      addCandidate(candidate); // Use the addCandidate function from props
-      fetchNewCandidate(); // Fetch the next candidate
+      addCandidate(candidate);
+      fetchNewCandidate();
     }
   };
 
   const handleSkipCandidate = () => {
-    fetchNewCandidate(); // Fetch the next candidate without saving
+    fetchNewCandidate();
   };
 
   if (loading) return <div>Loading...</div>;
