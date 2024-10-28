@@ -17,7 +17,7 @@ const SavedCandidates = () => {
           <thead>
             <tr>
               <th>Avatar</th>
-              <th>Login</th>
+              <th>Username</th>
               <th>Name</th>
               <th>Location</th>
               <th>Email</th>
@@ -29,7 +29,7 @@ const SavedCandidates = () => {
           <tbody>
             {savedCandidates.map((candidate) => (
               <tr key={candidate.id}>
-                <td>
+                <td style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <img
                     src={candidate.avatar_url}
                     alt={candidate.login}
@@ -47,8 +47,8 @@ const SavedCandidates = () => {
                   </a>
                 </td>
                 <td>
-                  <button onClick={() => removeCandidate(candidate.id)} style={{ marginLeft: '10px' }}>
-                    Remove
+                  <button className='reject' onClick={() => removeCandidate(candidate.id)}>
+                    ➖
                   </button>
                 </td>
               </tr>

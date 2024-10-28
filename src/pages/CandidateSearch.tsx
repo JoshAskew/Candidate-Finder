@@ -46,26 +46,26 @@ const CandidateSearch = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
-      {candidate && (
-        <div>
-          <h2>{candidate.login}</h2>
-          <img src={candidate.avatar_url} alt={candidate.login} />
-          {candidate.name && <p>Name: {candidate.name}</p>}
-          {candidate.location && <p>Location: {candidate.location}</p>}
-          {candidate.email && <p>Email: {candidate.email}</p>}
-          {candidate.company && <p>Company: {candidate.company}</p>}
-          <br></br>
-          <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
-            View Profile
-          </a>
-          <div>
-            <button className='add-button' onClick={handleSaveCandidate}>+</button>
-            <button className='skip-button' onClick={handleSkipCandidate}>-</button>
-          </div>
+    <div className="card">
+    {candidate && (
+      <div className="card-content">
+        <img className="avatar" src={candidate.avatar_url} alt={candidate.login} />
+        <h2>{candidate.login}</h2>
+        {candidate.name && <p><strong>Name:</strong> {candidate.name}</p>}
+        {candidate.location && <p><strong>Location:</strong> {candidate.location}</p>}
+        {candidate.email && <p><strong>Email:</strong> {candidate.email}</p>}
+        {candidate.company && <p><strong>Company:</strong> {candidate.company}</p>}
+        <br></br>
+        <a href={candidate.html_url} target="_blank" rel="noopener noreferrer" className="profile-link">
+          View Profile
+        </a>
+        <div className="button-group">
+          <button className="add-button" onClick={handleSaveCandidate}>➕</button>
+          <button className="skip-button" onClick={handleSkipCandidate}>➖</button>
         </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
   );
 };
 
