@@ -1,38 +1,61 @@
 import { useOutletContext } from 'react-router-dom';
 import { Candidate } from '../interfaces/Candidate.interface';
 
-
-  const SavedCandidates = () => {
-    const { savedCandidates, removeCandidate } = useOutletContext<{
-      savedCandidates: Candidate[];
-      removeCandidate: (id: number) => void;
-    }>();
+const SavedCandidates = () => {
+  const { savedCandidates, removeCandidate } = useOutletContext<{
+    savedCandidates: Candidate[];
+    removeCandidate: (id: number) => void;
+  }>();
 
   return (
     <>
-    <table>
       <h1>Potential Candidates</h1>
       {savedCandidates.length === 0 ? (
         <p>No candidates saved yet.</p>
       ) : (
-        <>
-          {savedCandidates.map((candidate) => (
-            <ul key={candidate.id}>
-              <h2 >{candidate.login}</h2>
-              <img src={candidate.avatar_url} alt={candidate.login} />
-              <button onClick={() => removeCandidate(candidate.id)} style={{ marginLeft: '10px' }}>
-                Remove
-              </button>
-              {candidate.name && <p>Name: {candidate.name}</p>}
-              {candidate.location && <p className='tr'>Location: {candidate.location}</p>}
-              {candidate.email && <p>Email: {candidate.email}</p>}
-              {candidate.company && <p>Company: {candidate.company}</p>}
-              <a href={candidate.html_url} target="_blank" rel="noopener noreferrer"></a>
-            </ul>
-          ))}
-        </>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Login</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Profile</th>
+              <th>Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            {savedCandidates.map((candidate) => (
+              <tr key={candidate.id}>
+                <td>
+                  <img
+                    src={candidate.avatar_url}
+                    alt={candidate.login}
+                    style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                  />
+                </td>
+                <td>{candidate.login}</td>
+                <td>{candidate.name || 'N/A'}</td>
+                <td>{candidate.location || 'N/A'}</td>
+                <td>{candidate.email || 'N/A'}</td>
+                <td>{candidate.company || 'N/A'}</td>
+                <td>
+                  <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
+                    View Profile
+                  </a>
+                </td>
+                <td>
+                  <button onClick={() => removeCandidate(candidate.id)} style={{ marginLeft: '10px' }}>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
-      </table>
     </>
   );
 };

@@ -55,12 +55,13 @@ const CandidateSearch = () => {
           {candidate.location && <p>Location: {candidate.location}</p>}
           {candidate.email && <p>Email: {candidate.email}</p>}
           {candidate.company && <p>Company: {candidate.company}</p>}
+          <br></br>
           <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
             View Profile
           </a>
           <div>
-            <button onClick={handleSaveCandidate}>+</button>
-            <button onClick={handleSkipCandidate}>-</button>
+            <button className='add-button' onClick={handleSaveCandidate}>+</button>
+            <button className='skip-button' onClick={handleSkipCandidate}>-</button>
           </div>
         </div>
       )}

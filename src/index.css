@@ -118,3 +118,13 @@ tbody tr:nth-child(odd) {
   width: 80vw;
   table-layout: fixed;
 }
+
+.add-button {
+  background-color: #44F63D;
+  margin: 30px;
+}
+
+.skip-button {
+  background-color: #de2222;
+  margin: 30px;
+}
