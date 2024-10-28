@@ -4,31 +4,42 @@ import { Candidate } from '../interfaces/Candidate.interface';
 
 const CandidateSearch = () => {
   const [candidate, setCandidate] = useState<Candidate | null>(null);
+  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchCandidate = async () => {
-      try {
-        const candidates = await searchGithub(); // Fetch the list of candidates
-        if (candidates.length > 0) {
-          // Select a random candidate from the list
-          const randomIndex = Math.floor(Math.random() * candidates.length);
-          const randomCandidate = candidates[randomIndex];
-          const data = await searchGithubUser(randomCandidate.login); // Fetch details for the selected candidate
-          setCandidate(data);
-        } else {
-          setError('No candidates found');
-        }
-      } catch (err) {
-        setError('Failed to fetch candidate data');
-      } finally {
-        setLoading(false);
+  const fetchNewCandidate = async () => {
+    try {
+      const candidates = await searchGithub();
+      if (candidates.length > 0) {
+        const randomIndex = Math.floor(Math.random() * candidates.length);
+        const randomCandidate = candidates[randomIndex];
+        const data = await searchGithubUser(randomCandidate.login);
+        setCandidate(data);
+      } else {
+        setError('No candidates found');
       }
-    };
+    } catch (err) {
+      setError('Failed to fetch candidate data');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchCandidate();
+  useEffect(() => {
+    fetchNewCandidate();
   }, []);
+
+  const handleSaveCandidate = () => {
+    if (candidate) {
+      setSavedCandidates([...savedCandidates, candidate]);
+      fetchNewCandidate(); // Fetch the next candidate
+    }
+  };
+
+  const handleSkipCandidate = () => {
+    fetchNewCandidate(); // Fetch the next candidate without saving
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -45,6 +56,10 @@ const CandidateSearch = () => {
           <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
             View Profile
           </a>
+          <div>
+            <button onClick={handleSaveCandidate}>+</button>
+            <button onClick={handleSkipCandidate}>-</button>
+          </div>
         </div>
       )}
     </div>
