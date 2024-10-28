@@ -51,6 +51,7 @@ const CandidateSearch = () => {
         <div>
           <h2>{candidate.login}</h2>
           <img src={candidate.avatar_url} alt={candidate.login} />
+          {candidate.name && <p>Name: {candidate.name}</p>}
           {candidate.location && <p>Location: {candidate.location}</p>}
           {candidate.email && <p>Email: {candidate.email}</p>}
           {candidate.company && <p>Company: {candidate.company}</p>}
