@@ -43,17 +43,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
+
 button:hover {
   border-color: #646cff;
 }
@@ -117,4 +107,88 @@ tbody tr:nth-child(odd) {
 .table {
   width: 80vw;
   table-layout: fixed;
+}
+
+.add-button {
+  background-color: #44F63D;
+  margin: 30px;
+  border: none;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #4c924a;
+}
+
+.skip-button {
+  background-color: #ff0000;
+  margin: 30px;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.skip-button:hover {
+  background-color: #9b2a2a;
+}
+
+.reject {
+  background-color: #ff0000;
+  border: none;
+  border-radius: 50%;
+  margin-left: 35px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reject:hover {
+  background-color: rgb(140, 5, 5);
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5em;
+  margin: 1em;
+  border-radius: 12px;
+  text-align: center;
+  width: 300px;
+}
+
+.card-content h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.avatar {
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.profile-link {
+  display: block;
+  color: #969bfa;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 1em;
+}
+
+.profile-link:hover {
+  color: #535bf2;
+}
+
+td {
+  overflow: hidden;
+  padding: 5px;
 }
