@@ -46,6 +46,8 @@ const CandidateSearch = () => {
   if (error) return <div>{error}</div>;
 
   return (
+    <>
+    <h1>Candidate Search</h1>
     <div className="card">
     {candidate && (
       <div className="card-content">
@@ -60,12 +62,15 @@ const CandidateSearch = () => {
           View Profile
         </a>
         <div className="button-group">
-          <button className="add-button" onClick={handleSaveCandidate}>➕</button>
-          <button className="skip-button" onClick={handleSkipCandidate}>➖</button>
         </div>
       </div>
     )}
   </div>
+  <div>
+    <button className="add-button" onClick={handleSaveCandidate}>➕</button>
+    <button className="skip-button" onClick={handleSkipCandidate}>➖</button>
+    </div>
+  </>
   );
 };
 
