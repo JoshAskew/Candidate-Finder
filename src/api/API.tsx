@@ -3,12 +3,12 @@ import { Candidate } from '../interfaces/Candidate.interface'
 const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
-    console.log(import.meta.env);
+    //console.log(import.meta.env);
     if (!import.meta.env.VITE_GITHUB_TOKEN) {
       console.error('GitHub token is not defined!');
       return [];
   }
-    console.log('Token being used:', import.meta.env.VITE_GITHUB_TOKEN);
+    //console.log('Token being used:', import.meta.env.VITE_GITHUB_TOKEN);
     const response = await fetch(
       `https://api.github.com/users?since=${start}`,
       {
@@ -19,7 +19,7 @@ const searchGithub = async () => {
     );
     // console.log('Response:', response);
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     if (!response.ok) {
       throw new Error('invalid API response, check the network tab');
     }
