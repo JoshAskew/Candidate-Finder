@@ -37,7 +37,7 @@ This application enables potential employers to search the GitHub API for prospe
 This application is accessible in two ways:
 
 1. **Locally**: Clone the repository, install the necessary dependencies, and run the application from the command line.
-2. **Deployed Version**: Visit the live version of the application at ['Candidate Finder'](https://candidate-finder.onrender.com/).
+2. **Deployed Version**: Visit the live version of the application here: [Candidate Finder](https://candidate-finder.onrender.com/).
 
 
 ## License
