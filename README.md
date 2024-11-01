@@ -43,7 +43,7 @@ This application is accessible in two ways:
 Here, you can see what the Home Page looks like when you open the application:
 <img src='./images/Home.png'>
 
-Here, you can see what the table looke like for the Potential Candidates you have saved: 
+Here, you can see what the table looks like for the Potential Candidates you have saved: 
 <img src='./images/Saved.png'>
 
 
