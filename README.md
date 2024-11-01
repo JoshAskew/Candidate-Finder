@@ -40,6 +40,13 @@ This application is accessible in two ways:
 2. **Deployed Version**: Visit the live version of the application at ['Candidate Finder'](https://candidate-finder.onrender.com/).
 
 
+Here, you can see what the Home Page looks like when you open the application:
+<img src='./images/Home.png'>
+
+Here, you can see what the table looke like for the Potential Candidates you have saved: 
+<img src='./images/Saved.png'>
+
+
 ## License
 This project is licensed under the MIT license.
 
